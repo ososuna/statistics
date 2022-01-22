@@ -11,7 +11,8 @@ H<sub>1</sub>: µ ≠ > <
 1 - α = 95%  
 α = 5%
 ### 3. Select the test statistic
-$$Z = \frac{\overline{x}-µ}{\frac{s}{ \sqrt{n}}}$$ 
+<img src="https://render.githubusercontent.com/render/math?math=Z = \frac{\overline{x}-µ}{\frac{s}{ \sqrt{n}}}">  
+
 ### 4. Calculate the test statistic
 $$\overline{x}=$$
 $$s=$$
