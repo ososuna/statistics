@@ -32,8 +32,6 @@ def linearRegressionLeastSquare(x, y):
       sumY = sum(y)
       sumXY = sum([x * y for (x, y) in zip(x, y)])
 
-
-
   # Obtaining a and b
   b = (n * sumXY - sumX * sumY)/(n*sumX2 - sumX * sumX)
   a = (sumY - b*sumX)/n
@@ -46,11 +44,28 @@ def linearRegressionLeastSquare(x, y):
   print("\nEquation is:")
   print(f'y = {a} + {b}x')
 
-  # Plot regression model
+  # Obtain R2
   y_pred = []
   for i in range(n):
     y_pred.append(a+b*x[i])
+  
+  ss_tot = 0
+  ss_res = 0
+  mean_y = sum(y)/n
 
+  for i in range(n):
+    ss_tot += (y[i] - mean_y) ** 2
+    ss_res += (y[i] - y_pred[i]) ** 2
+  r2 = 1 - (ss_res/ss_tot)
+  print("R2 Score")
+  print(r2)
+
+  # Plot regression model
   plt.scatter(x, y)
   plt.plot(x, y_pred, c='blue', linewidth=2)
   plt.show()
+
+linearRegressionLeastSquare(
+  [16, 32, 48, 56, 64, 80],
+  [10, 15, 20, 22, 30, 32]
+)
