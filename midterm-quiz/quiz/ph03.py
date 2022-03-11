@@ -24,24 +24,15 @@ data = [[12, 10, 13, 19, 16], [15, 18, 15, 12, 14]]
 stat, p, dof, expected = chi2_contingency(data) 
 
 alpha = 0.05
-print("P valor es " + str(p)) 
+print("\nP valor es " + str(p)) 
 if p <= alpha: 
-  print('Dependent(Se rechaza H0)') 
+  print('\nDependiente (Se rechaza H0)') 
 else: 
-  print('Independent(Se acepta H0)')
+  print('\nIndependiente (Se acepta H0)')
 
 chi2 = chi2.ppf(1-.1, df = 11)
-print(chi2)
+print(f'\n{chi2}')
 
-mu = 0
-variance = 1
-sigma = math.sqrt(variance)
-x = np.linspace(mu - 3*sigma, mu + 3*sigma, 100)
-plt.axvline(x=p, color="blue")
-plt.axvline(x=chi2, color="red")
-plt.axvline(x=mu, color="green")
-plt.plot(x, stats.norm.pdf(x, mu, sigma))
-plt.show()
 print('\nd, e, f')
 
 print('\ng. Conclusiones')
