@@ -8,9 +8,9 @@ print('H0: no diferences between given data')
 print('H1: diferences between given data')
 
 # 2. Define the level of confidence and significance
-print('1 - α = 95%')
-print('α = 5%')
-confidence = 0.05
+print('1 - α = 90%')
+print('α = 10%')
+confidence = 0.1
 
 # 3. Select the test statistic
 print('anova')
@@ -19,15 +19,15 @@ print('anova')
 data = [
   {
     'id': 1,
-    'data': [15, 16, 14, 15, 17]
+    'data': [6, 9, 11, 10]
   },
   {
     'id': 2,
-    'data': [14, 13, 15, 16, 14]
+    'data': [6, 7, 9, 8]
   },
   {
     'id': 3,
-    'data': [13, 12, 11, 14, 11]
+    'data': [2, 5, 4, 6]
   }
 ]
 
@@ -56,7 +56,6 @@ def anova_test(data=[{}], confidence=0.05):
   criticalValue =  stats.f.isf(confidence, scEntre, scIntra)
   print(f'critical value: {criticalValue}')
   print(f'f: {f}')
-  print(f)
   # 5. Acceptance and rejection region
   mu = 0
   variance = 1
@@ -76,4 +75,4 @@ print('H0 is rejected')
 print('H1 is accepted')
 
 # 7. Draw conclusions
-print('With a confidence level of 95% it is affirmed that there are differences between the groups')
+print('With a confidence level of 90% it is affirmed that there are differences between the groups')
