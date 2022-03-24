@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
 
+confidence=0.1
 data = [
   {
     'id': 'a',
@@ -26,7 +27,7 @@ data = [
   },
 ]
 
-def anova_test(data=[{}]):
+def anova_test(data=[{}], confidence=0.05):
   n = sum([ len(i['data']) for i in data ])
   x_tested = sum([ sum(i['data']) for i in data ])/n
   lg = n-1
@@ -48,7 +49,7 @@ def anova_test(data=[{}]):
   s2r = scIntra/glIntra
   f = s2e/s2r
   gl = [scEntre, scIntra]
-  criticalValue =  stats.f.isf(0.05, scEntre, scIntra)
+  criticalValue =  stats.f.isf(confidence, scEntre, scIntra)
   mu = 0
   variance = 1
   sigma = math.sqrt(variance)
@@ -60,4 +61,4 @@ def anova_test(data=[{}]):
   plt.plot(x, stats.norm.pdf(x, mu, sigma))
   plt.show()
 
-anova_test(data)
+anova_test(data, confidence)
